@@ -1,0 +1,60 @@
+<table class="abc" align="center" border="2px">
+  <div style="padding: 20px">
+    <div >
+        <p style="font-size: 45px">Sign up</p><br>
+      <label>Email id:-</label>
+      <br><br>
+      <input type="email" [(ngModel)]="user_email">
+    </div>
+    <br>
+    <div >
+      <label>Password:-</label>
+      <br><br>
+      <input type="password" [(ngModel)]="user_password" minlength="8">
+  
+    </div>
+    <br>
+    <div >
+      <label>User_Name:-</label>
+      <br><br>
+      <input type="text" [(ngModel)]="user_name">
+    </div>
+    <br>
+    <div >
+      <label>Mob_no:-</label>
+      <br><br>
+      <input type="number" [(ngModel)]="user_mobileno">
+    </div>
+    <br>
+    <div >
+      <label>City:-</label>
+      <br><br>
+      <input type="text" [(ngModel)]="user_city">
+    </div>
+    <br>
+    <div >
+      <label>Gender:-</label>
+      <br><br>
+      <input type="text" [(ngModel)]="user_gender">
+    </div>
+    <br>
+    <div >
+      <label>Address:-</label>
+      <br><br>
+      <input type="textarea" [(ngModel)]="user_address">
+    </div>
+    <br>
+    <div >
+      <label>User Type:-</label>
+      <br><br>
+      <input type="textarea" [(ngModel)]="user_type">
+    </div>
+    <br>
+    <div >
+      <button class="b c" (click)="onadd()">Signup</button><br><br>
+      
+      
+    </div>
+  </div>
+  </table>
+  

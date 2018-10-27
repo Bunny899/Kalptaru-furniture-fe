@@ -1,0 +1,23 @@
+<table align="center" border="2px" style="margin-top: 180px">
+  <div style="padding: 25px">
+    <h1>Login</h1>
+    <div>
+      <br>
+      <label>Email id:-</label>
+      <br><br>
+      <input type="email" [(ngModel)]="user_email" style="width: 280px">
+    </div>
+    <br>
+    <div>
+      <label>Password:-</label>
+      <br><br>
+      <input type="password" [(ngModel)]="user_password" style="width: 280px">
+    </div>
+    <br>
+    <div>
+      <button class="b c" (click)="onadd()" style="width: 280px">Login</button><br><br>
+      <a class="a" (click)="onSignup()">New user?</a>&nbsp;&nbsp;<br><br>
+    </div>
+  </div>
+  </table>
+  
