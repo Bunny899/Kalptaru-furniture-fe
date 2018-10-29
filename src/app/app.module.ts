@@ -4,7 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { MatInputModule,MatTableModule,MatPaginatorModule,MatSortModule,MatFormFieldModule } from '@angular/material';
+import { MatInputModule,
+         MatTableModule,
+         MatPaginatorModule,
+         MatSortModule,
+         MatFormFieldModule,
+         MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './login/login.component';
@@ -28,6 +33,7 @@ import { ProductComponent } from './product/product.component';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
     BrowserAnimationsModule
     
   ],

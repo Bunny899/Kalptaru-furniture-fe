@@ -10,3 +10,7 @@ table {
 td, th {
   width: 25%;
 }
+.example-button-row button,
+.example-button-row a {
+  margin-left: 1150px;
+}

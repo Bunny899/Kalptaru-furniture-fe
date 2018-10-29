@@ -25,19 +25,30 @@ export class ProductComponent implements OnInit {
    product_qty:number;
    product_soh:number;
    product:product[]=[];
+   addProductArray:product[]=[];
   constructor(private _productservice:ProductService) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['Action', 'product_id', 'product_name'];
+  displayedColumns: string[] = [ 'product_name','product_price'];
   dataSource=new MatTableDataSource(this.product);
 
-  
+  onAddProductButton()
+  {
+    this._productservice.addproduct(new product(this.product_id,this.product_name,this.category_id,this.product_price,this.product_colour,this.product_image,this.product_weight,this.product_warranty,this.product_material,this.product_Roomtype,this.product_height,this.product_width,this.product_depth,this.product_qty,this.product_soh)).subscribe(
+        (data:any)=>{
+            console.log(data);
+            this.addProductArray.push(new product(this.product_id,this.product_name,this.category_id,this.product_price,this.product_colour,this.product_image,this.product_weight,this.product_warranty,this.product_material,this.product_Roomtype,this.product_height,this.product_width,this.product_depth,this.product_qty,this.product_soh));
+            alert("successfully added");
+        }
+    )
+  }
 
   ngOnInit() {
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.paginator;
+
     this._productservice.getAllProduct().subscribe(
       (data:any)=>{
         this.product=data;
