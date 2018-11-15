@@ -20,14 +20,14 @@ export class ProductService {
     return this._http.post(this.url,body,{headers:head1});
   }
 
-  updateproduct(product_id:string)
+  updateproduct(item:product)
   {
-    const body=JSON.stringify(product_id);
+    const body=JSON.stringify(item);
     const head1=new HttpHeaders().set('Content-Type','application/json');
-    return this._http.put(this.url + product_id,body,{headers:head1});
+    return this._http.put(this.url + item.product_id,body,{headers:head1});
   }
 
-  deleteproduct(product_id:string){
-      return this._http.delete(this.url+product_id);
+  deleteproduct(item){
+    return this._http.delete(this.url+item.product_id);
   }
 }

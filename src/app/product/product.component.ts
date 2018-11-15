@@ -26,26 +26,40 @@ export class ProductComponent implements OnInit {
    product_soh:number;
    product:product[]=[];
    addProductArray:product[]=[];
-  constructor(private _productservice:ProductService) {}
+   deleteProductArray:product[]=[];
+   f:number=0;
+  constructor(private _productservice:ProductService,private _router:Router) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'product_name','product_price'];
+  displayedColumns: string[] = [ 'product_name','product_price','Action'];
   dataSource=new MatTableDataSource(this.product);
 
-  onAddProductButton()
+  ProductPage()
   {
-    this._productservice.addproduct(new product(this.product_id,this.product_name,this.category_id,this.product_price,this.product_colour,this.product_image,this.product_weight,this.product_warranty,this.product_material,this.product_Roomtype,this.product_height,this.product_width,this.product_depth,this.product_qty,this.product_soh)).subscribe(
-        (data:any)=>{
-            console.log(data);
-            this.addProductArray.push(new product(this.product_id,this.product_name,this.category_id,this.product_price,this.product_colour,this.product_image,this.product_weight,this.product_warranty,this.product_material,this.product_Roomtype,this.product_height,this.product_width,this.product_depth,this.product_qty,this.product_soh));
-            alert("successfully added");
-        }
+    this._router.navigate(['/addproduct']);  
+  }
+  UpdateProduct(item:product)
+  {
+    console.log(item.product_id)
+    this._router.navigate(['/updateproduct',item.product_id]);  
+  }
+  DeleteProduct(item)
+  {
+    this._productservice.deleteproduct(item).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.deleteProductArray.splice(this.deleteProductArray.indexOf(item),1);
+        this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
+        console.log(this.dataSource.data);
+        this.dataSource.data=this.product; 
+      }
     )
   }
-
   ngOnInit() {
+    
+    
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.paginator;
 

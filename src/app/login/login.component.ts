@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
    user_address:string;
    user_type:number;
    
+   product_id:string;
   constructor(private _abc:LoginService,private _router:Router) { }
 
   ngOnInit() {
@@ -30,8 +31,11 @@ export class LoginComponent implements OnInit {
       {
         console.log(data);
         if(data.length == 1){
-          localStorage.setItem('user_email',this.user_email);
+          // localStorage.setItem('user_email',this.user_email);
+        //  localStorage.setItem('product_id',this.product_id);
           alert("Login Successfully"); 
+          // this._router.navigate(['/product']);
+          this._router.navigate(['/category']);
         }
         else{
           alert("unsuccesful");
