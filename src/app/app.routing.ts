@@ -12,6 +12,10 @@ import { UpdateEmployeeComponent } from './employee/update-employee/update-emplo
 import {SalarymanagementComponent } from './salarymanagement/salarymanagement.component';
 import {DashboardComponent } from './dashboard/dashboard.component';
 import {MenuComponent } from './menu/menu.component';
+import { ViewbillComponent } from './Cashier/Bill_management/viewbill/viewbill.component';
+import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bill-details.component';
+
+
 const arr:Routes=[
     {path:'',component:LoginComponent},
     {path:'product',component:ProductComponent},
@@ -26,6 +30,9 @@ const arr:Routes=[
     {path:'salarymanagement',component:SalarymanagementComponent},
     {path:'dashboard',component:DashboardComponent},
     {path:'menu',component:MenuComponent},
+    {path:'Viewbill',component:ViewbillComponent},
+    {path:'getbilldetails/:bill_id',component:BillDetailsComponent},
+
 ];
 
 export const routing=RouterModule.forRoot(arr);

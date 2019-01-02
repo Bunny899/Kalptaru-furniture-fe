@@ -24,8 +24,13 @@ import { AddEmployeeComponent } from './employee/add-employee/add-employee.compo
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import { SalarymanagementComponent } from './salarymanagement/salarymanagement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bill-details.component';
+import { ViewbillComponent } from './Cashier/Bill_management/viewbill/viewbill.component';
+
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MenuComponent } from './menu/menu.component';
+import { bill_details } from './classes/bill_details';
 
 
 @NgModule({
@@ -42,6 +47,8 @@ import { MenuComponent } from './menu/menu.component';
     AddEmployeeComponent,
     UpdateEmployeeComponent,
     SalarymanagementComponent,
+    BillDetailsComponent,
+    ViewbillComponent,
     DashboardComponent,
     MenuComponent,
 

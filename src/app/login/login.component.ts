@@ -31,15 +31,16 @@ export class LoginComponent implements OnInit {
       {
         console.log(data);
         if(data.length == 1){
-          // localStorage.setItem('user_email',this.user_email);
-        //  localStorage.setItem('product_id',this.product_id);
-          alert("Login Successfully"); 
-           //this._router.navigate(['/product']);
-          //this._router.navigate(['/category']);
-          // this._router.navigate(['/employee']);
-          // this._router.navigate(['/salarymanagement']);
-          this._router.navigate(['/menu']);
-        }
+          if(data[0].user_type==1)
+          {
+            alert("Login Successfully"); 
+            this._router.navigate(['/Viewbill']);
+          }
+          else
+          {
+            alert("Use Admin Id And Password "); 
+          }
+      }
         else{
           alert("unsuccesful");
         }
