@@ -9,30 +9,41 @@ import { MatInputModule,
          MatPaginatorModule,
          MatSortModule,
          MatFormFieldModule,
-         MatButtonModule } from '@angular/material';
+         MatButtonModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './login/login.component';
-import { WorkerSignupComponent } from './worker-signup/worker-signup.component';
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { CategoryComponent } from './category/category.component';
 import { AddcategoryComponent } from './category/addcategory/addcategory.component';
 import { UpdatecategoryComponent } from './category/updatecategory/updatecategory.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
+import { SalarymanagementComponent } from './salarymanagement/salarymanagement.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WorkerSignupComponent,
     ProductComponent,
     AddProductComponent,
     UpdateProductComponent,
     CategoryComponent,
     AddcategoryComponent,
     UpdatecategoryComponent,
+    EmployeeComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    SalarymanagementComponent,
+    DashboardComponent,
+    MenuComponent,
 
   ],
   imports: [
@@ -46,7 +57,15 @@ import { UpdatecategoryComponent } from './category/updatecategory/updatecategor
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
     
   ],
   providers: [],

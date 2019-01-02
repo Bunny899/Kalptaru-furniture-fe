@@ -34,8 +34,11 @@ export class LoginComponent implements OnInit {
           // localStorage.setItem('user_email',this.user_email);
         //  localStorage.setItem('product_id',this.product_id);
           alert("Login Successfully"); 
-          // this._router.navigate(['/product']);
-          this._router.navigate(['/category']);
+           //this._router.navigate(['/product']);
+          //this._router.navigate(['/category']);
+          // this._router.navigate(['/employee']);
+          // this._router.navigate(['/salarymanagement']);
+          this._router.navigate(['/menu']);
         }
         else{
           alert("unsuccesful");
