@@ -29,8 +29,16 @@ import { ViewbillComponent } from './Cashier/Bill_management/viewbill/viewbill.c
 
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MenuComponent } from './menu/menu.component';
+
 import { bill_details } from './classes/bill_details';
+import { OrderComponent } from './order/order.component';
+import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { UpdateusermanagementComponent } from './usermanagement/updateusermanagement/updateusermanagement.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { MenunavComponent } from './menunav/menunav.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -50,7 +58,15 @@ import { bill_details } from './classes/bill_details';
     BillDetailsComponent,
     ViewbillComponent,
     DashboardComponent,
-    MenuComponent,
+
+    OrderComponent,
+    UsermanagementComponent,
+    UpdateusermanagementComponent,
+    AboutusComponent,
+    ContactusComponent,
+    MyprofileComponent,
+    MenunavComponent,
+    LoadingComponent,
 
   ],
   imports: [

@@ -23,14 +23,14 @@ export class UpdateEmployeeComponent implements OnInit {
   constructor(private _employeeservice:EmployeeService,private _router:Router,private _activatedroutes:ActivatedRoute) { }
   BackButton()
   {
-    this._router.navigate(['/employee']);  
+    this._router.navigate(['menunav/:user_email/employee']);  
   }
   UpdateEmployee()
   {
      this._employeeservice.updateEmployee(new employee(this.employee_email,this.employee_password,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.employee_type)).subscribe(
        (data:any)=>{
          console.log(data);
-        this._router.navigate(['/employee']);      
+        this._router.navigate(['menunav/:user_email/employee']);      
        }
     )  
     

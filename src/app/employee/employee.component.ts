@@ -32,12 +32,12 @@ export class EmployeeComponent implements OnInit {
   dataSource=new MatTableDataSource(this.employee);
   EmployeePage()
   {
-    this._router.navigate(['/addemployee']);  
+    this._router.navigate(['menunav/:user_email/addemployee']);  
   }
   UpdateEmployee(item:employee)
   {
     console.log(item.employee_email)
-    this._router.navigate(['/updateemployee',item.employee_email]);  
+    this._router.navigate(['menunav/:user_email/updateemployee',item.employee_email]);  
   }
   DeleteEmployee(item)
   {

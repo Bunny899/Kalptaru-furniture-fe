@@ -25,13 +25,13 @@ export class CategoryComponent implements OnInit {
 
   CategoryPage()
   {
-    this._router.navigate(['/addcategory']);  
+    this._router.navigate(['menunav/:user_email/addcategory']);  
   }
 
   UpdateCategory(item:category)
   {
     console.log(item.category_name)
-    this._router.navigate(['/updatecategory',item.category_name]);  
+    this._router.navigate(['menunav/:user_email /updatecategory',item.category_name]);  
   }
 
   DeleteCategory(item)

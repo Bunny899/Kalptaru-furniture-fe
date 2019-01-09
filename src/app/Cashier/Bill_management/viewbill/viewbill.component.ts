@@ -19,7 +19,7 @@ export class ViewbillComponent implements OnInit {
 
   onClick(item)
   {
-    this._router.navigate(['/getbilldetails',item.bill_id]);
+    this._router.navigate(['menunav/:user_email/getbilldetails',item.bill_id]);
   }
   ngOnInit() {
     this._ser.getAllBill().subscribe(

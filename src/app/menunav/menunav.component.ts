@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router,ActivatedRoute } from '@angular/router';
+
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'],
+  selector: 'app-menunav',
+  templateUrl: './menunav.component.html',
+  styleUrls: ['./menunav.component.css'],
 })
-export class MenuComponent {
-  
+export class MenunavComponent {
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,private _router:Router) {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
 }

@@ -43,15 +43,49 @@ export class SalarymanagementComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+  
+  this._employeeservice.getEmployeeById(this.employee_email).subscribe(
+      (data:any)=>{
+          function monthDiff(d1, d2) {
+            var months;
+           months = (d2.getFullYear() - d1.getFullYear()) * 12;
+           months -= d1.getMonth() ;
+            months += d2.getMonth();
+            return months <= 0 ? 0 : months;
+        }
+        console.log(
+          monthDiff(
+            new Date(2017, 10, 4), 
+            new Date(Date.now())  
+            // new Date(2018,11,5)
+        )
+      );      
+      }
+  );
+  // function daydiff(d1,d2){
+  //   var days;
+  //   var diffdays;
+  //   days= (d2.getTime()-d1.getTime());
+  //   diffdays=Math.ceil((days/(1000*3600*24)));
+  //   return diffdays;
+  // }
+  // console.log(
+  //   daydiff(new Date(2017,10,4),
+  //   new Date(Date.now()))
+  // );
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.paginator;
-
+    
+    
     this._employeeservice.getAllEmployee().subscribe(
       (data:any)=>{
         this.employee=data;
         this.dataSource.data=this.employee; 
+        
       }
     );
+    
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

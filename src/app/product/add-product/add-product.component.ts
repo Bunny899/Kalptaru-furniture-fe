@@ -33,13 +33,13 @@ export class AddProductComponent implements OnInit {
             console.log(data);
             this.addProductArray.push(new product(this.product_id,this.product_name,this.category_id,this.product_price,this.product_colour,this.product_image,this.product_weight,this.product_warranty,this.product_material,this.product_Roomtype,this.product_height,this.product_width,this.product_depth,this.product_qty,this.product_soh));
             alert("successfully added");
-            this._router.navigate(['/product']);  
+            this._router.navigate(['menunav/:user_email/product']);  
         }
     )
   }
   BackButton()
   {
-    this._router.navigate(['/product']);  
+    this._router.navigate(['menunav/:user_email/product']);  
   }
   ngOnInit() {
   }

@@ -29,21 +29,21 @@ export class UpdateProductComponent implements OnInit {
   
   BackButton()
   {
-    this._router.navigate(['/product']);  
+    this._router.navigate(['menunav/:user_email/product']);  
   }
   UpdateProduct()
   {
      this._productservice.updateproduct(new product(this.product_id,this.product_name,this.category_id,this.product_price,this.product_colour,this.product_image,this.product_weight,this.product_warranty,this.product_material,this.product_Roomtype,this.product_height,this.product_width,this.product_depth,this.product_qty,this.product_soh)).subscribe(
        (data:any)=>{
          console.log(data);
-        this._router.navigate(['/product']);      
+        this._router.navigate(['menunav/:user_email/product']);      
        }
     )  
     
   }
   CancelProduct()
   { 
-    this._router.navigate(['/product']);  
+    this._router.navigate(['menunav/:user_email/product']);  
   }
   ngOnInit() {
    this.product_id=this._activatedroutes.snapshot.params['product_id'];

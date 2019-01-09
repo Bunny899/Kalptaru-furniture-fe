@@ -22,10 +22,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSignup(){
-    this._router.navigate(['/workersignup']);
-  }
+  
   onadd(){
+
     this._abc.getLoginByEmailAndPassword(new log(this.user_email,this.user_password)).subscribe(
       (data:any)=>
       {
@@ -34,7 +33,9 @@ export class LoginComponent implements OnInit {
           if(data[0].user_type==1)
           {
             alert("Login Successfully"); 
-            this._router.navigate(['/Viewbill']);
+            this._router.navigate(['/loading']);
+            this._router.navigate(['/menunav',this.user_email]);
+            
           }
           else
           {

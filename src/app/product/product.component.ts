@@ -38,12 +38,12 @@ export class ProductComponent implements OnInit {
 
   ProductPage()
   {
-    this._router.navigate(['/addproduct']);  
+    this._router.navigate(['menunav/:user_email/addproduct']);  
   }
   UpdateProduct(item:product)
   {
     console.log(item.product_id)
-    this._router.navigate(['/updateproduct',item.product_id]);  
+    this._router.navigate(['menunav/:user_email/updateproduct',item.product_id]);  
   }
   DeleteProduct(item)
   {
