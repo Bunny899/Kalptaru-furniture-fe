@@ -3,6 +3,9 @@ import { order } from '../classes/order';
 import { OrderService } from '../services/order.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+
+
+
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -15,25 +18,27 @@ export class OrderComponent implements OnInit {
    fk_product_id:String;
    fk_category_id:String;
    order_status:number;
+   fk_user_email:string;
 
    order:order[]=[];
    deleteOrderArray:order[]=[];
-  constructor(private _orderservice:OrderService,private _router:Router) { }
+   productArray:order[]=[];
+  constructor(private _orderservice:OrderService,private _router:Router,private _activatedroutes:ActivatedRoute) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'order_date','order_amount','order_status','Action'];
+  displayedColumns: string[] = [ 'product_name','order_amount','product_Roomtype','user_name','user_address','Action'];
   dataSource=new MatTableDataSource(this.order);
-
+user_email:string;
   DeleteOrder(item)
   {
     this._orderservice.deleteOrder(item).subscribe(
       (data:any)=>{
-        console.log(data);
+        // console.log(data);
         this.deleteOrderArray.splice(this.deleteOrderArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        console.log(this.dataSource.data);
+        // console.log(this.dataSource.data);
         this.dataSource.data=this.order; 
       }
     )
@@ -47,8 +52,16 @@ export class OrderComponent implements OnInit {
       (data:any)=>{
         this.order=data;
         this.dataSource.data=this.order; 
+        // console.log(data);
       }
     );
+    
+    this._orderservice.getUserDetailsByOrder().subscribe((data:any)=>{
+      this.order=data;
+        this.dataSource.data=this.order; 
+        
+       //console.log(data);
+    })
   }
 
   applyFilter(filterValue: string) {

@@ -14,10 +14,12 @@ export class UpdateusermanagementComponent implements OnInit {
   user_name:string;
   user_mobileno:number;
   user_city:string;
-  user_gender:string;
+  user_gender:string="male";
+  gender_arr:string[]=["male","female"];
   user_address:string;
   user_type:number;
   updateUserArray:user[]=[];
+  
   constructor(private _userservice:UsermanagementService,private _router:Router,private _activatedroutes:ActivatedRoute) { }
 
   UpdateUser()
@@ -29,6 +31,9 @@ export class UpdateusermanagementComponent implements OnInit {
        }
     )  
     
+  }
+  BackButton(){
+    this._router.navigate(['menunav/:user_email/usermanagement']);  
   }
   CancelUser()
   { 
@@ -47,8 +52,11 @@ export class UpdateusermanagementComponent implements OnInit {
         this.user_gender=data[0].user_gender;
         this.user_address=data[0].user_address;
         this.user_type=data[0].user_type;
+
+      
       }
     );
+    
   }
 
 }

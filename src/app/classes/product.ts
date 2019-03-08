@@ -13,7 +13,8 @@ export class product{
       public product_width:number,
       public product_depth:number,
       public product_qty:number,
-      public product_soh:number){
+      public product_soh:number
+      ){
   
     }
   }

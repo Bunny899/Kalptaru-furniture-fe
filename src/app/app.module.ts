@@ -1,16 +1,21 @@
+import { QRCodeModule } from 'angular2-qrcode';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { MatInputModule,
+import { 
          MatTableModule,
          MatPaginatorModule,
          MatSortModule,
          MatFormFieldModule,
-         MatButtonModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+         MatInputModule,
+         MatButtonModule, 
+         MatRadioModule,MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule, MatTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
@@ -39,10 +44,29 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { MenunavComponent } from './menunav/menunav.component';
 import { LoadingComponent } from './loading/loading.component';
+import { RemoveEmployeeComponent } from './remove-employee/remove-employee.component';
+import { WithdrawloanreqComponent } from './withdrawloanreq/withdrawloanreq.component';
+import { AcceptLoanComponent } from './accept-loan/accept-loan.component';
+import { DialogboxComponent } from './dialogbox/dialogbox.component';
 
 
+
+import { ChartsModule } from 'ng2-charts';
+import { ChartsComponent } from './charts/charts.component';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
+import { RadarChartComponent } from './charts/radar-chart/radar-chart.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { QrcodeappComponent } from './qrcodeapp/qrcodeapp.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+
+// import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
   declarations: [
+    
     AppComponent,
     LoginComponent,
     ProductComponent,
@@ -67,9 +91,25 @@ import { LoadingComponent } from './loading/loading.component';
     MyprofileComponent,
     MenunavComponent,
     LoadingComponent,
+    RemoveEmployeeComponent,
+    WithdrawloanreqComponent,
+    AcceptLoanComponent,
+    DialogboxComponent,
 
+    ChartsComponent,
+    BarChartComponent,
+    DoughnutChartComponent,
+    RadarChartComponent,
+    PieChartComponent,
+    QrcodeappComponent,
+    ChatbotComponent,
+    InvoiceComponent,
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    QRCodeModule,
+    ChartsModule,
     BrowserModule,
     routing,
     FormsModule,
@@ -78,19 +118,27 @@ import { LoadingComponent } from './loading/loading.component';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
+    MatRadioModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
+    ReactiveFormsModule,
     LayoutModule,
+    MatTabsModule,
+    
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    
     
   ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

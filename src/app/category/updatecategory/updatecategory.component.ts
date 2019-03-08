@@ -17,7 +17,7 @@ export class UpdatecategoryComponent implements OnInit {
 
   BackButton()
   {
-    this._router.navigate(['/category']);  
+    this._router.navigate(['menunav/:user_email/category']);      
   }
   UpdateCategory()
   {

@@ -16,14 +16,21 @@ export class AddcategoryComponent implements OnInit {
   constructor(private _categoryservice:CategoryService,private _router:Router) { }
   onAddCategoryButton()
   {
-    this._categoryservice.addCategory(new categoryname(this.category_name)).subscribe(
-      (data:any)=>{
-          console.log(data);
-          this.addProductArray.push(new categoryname(this.category_name));
-          alert("successfully added");
-          this._router.navigate(['menunav/:user_email/category']);  
-      }
-    )
+    if(this.category_name==null)
+    {
+      alert('Enter Category Name');
+    }
+    else{
+      this._categoryservice.addCategory(new categoryname(this.category_name)).subscribe(
+        (data:any)=>{
+            console.log(data);
+            this.addProductArray.push(new categoryname(this.category_name));
+            alert("successfully added");
+            this._router.navigate(['menunav/:user_email/category']);  
+        }
+      )
+    }
+    
   }
   BackButton()
   {

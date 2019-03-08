@@ -21,9 +21,28 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { LoadingComponent } from './loading/loading.component';
+import { RemoveEmployeeComponent } from './remove-employee/remove-employee.component';
+import { WithdrawloanreqComponent } from './withdrawloanreq/withdrawloanreq.component';
+import { AcceptLoanComponent } from './accept-loan/accept-loan.component';
+import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { QrcodeappComponent } from './qrcodeapp/qrcodeapp.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+
+
+
+
+
 const arr:Routes=[
-    
-    
+    {path:'invoice',component:InvoiceComponent},    
+    {path:'qrcode',component:QrcodeappComponent},    
+    {path:'chatbot',component:ChatbotComponent},    
+    {path:'bar-chart',component:BarChartComponent},    
+    {path:'doughnut-chart',component:DoughnutChartComponent},    
+    {path:'pie-chart',component:PieChartComponent},    
     {path:'',component:LoginComponent},
     
     {path:'menunav/:user_email',component:MenunavComponent,children:[
@@ -43,12 +62,19 @@ const arr:Routes=[
         {path:'order',component:OrderComponent},
         {path:'usermanagement',component:UsermanagementComponent},
         {path:'updateuser/:user_email',component:UpdateusermanagementComponent},
+        {path:'withdrawloanreq',component:WithdrawloanreqComponent},
+        {path:'dialogbox/:loan_id',component:DialogboxComponent},
+        {path:'AcceptLoan',component:AcceptLoanComponent},    
+        
     ]},
     
+    {path:'removeemployee/:employee_email',component:RemoveEmployeeComponent},
     {path:'aboutus',component:AboutusComponent},
     {path:'contactus',component:ContactusComponent},
     {path:'myprofile/:user_email',component:MyprofileComponent},
     {path:'loading',component:LoadingComponent},
+    //charts
+    
 ];
 
 export const routing=RouterModule.forRoot(arr);

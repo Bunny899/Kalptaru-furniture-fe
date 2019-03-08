@@ -7,3 +7,9 @@ mat-form-field
 {
     width: 100%;
 }
+img
+{
+    border:2px;
+    width:450px;
+    height:250px;
+}

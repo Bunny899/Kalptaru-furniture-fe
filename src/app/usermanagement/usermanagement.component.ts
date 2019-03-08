@@ -25,7 +25,7 @@ export class UsermanagementComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'user_name','user_city','user_gender','Action'];
+  displayedColumns: string[] = ['user_email', 'user_name','user_city','user_gender','user_mobileno','Action'];
   dataSource=new MatTableDataSource(this.user);
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class UsermanagementComponent implements OnInit {
 
     this._userservice.getAllUser().subscribe(
       (data:any)=>{
-        console.log(this.user_name);
         this.user=data;
         this.dataSource.data=this.user; 
       }
@@ -42,20 +41,23 @@ export class UsermanagementComponent implements OnInit {
   }
   UpdateUser(item:user)
   {
-    console.log(item.user_email)
     this._router.navigate(['menunav/:user_email/updateuser',item.user_email]);  
   }
    DeleteUser(item)
    {
      this._userservice.deleteUser(item).subscribe(
        (data:any)=>{
-         console.log(data);
          this.deleteUserArray.splice(this.deleteUserArray.indexOf(item),1);
          this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-         console.log(this.dataSource.data);
          this.dataSource.data=this.user; 
        }
      )
    }
+   applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }

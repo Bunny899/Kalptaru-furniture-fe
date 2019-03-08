@@ -1,9 +1,11 @@
-table
-{
+table {
     width: 100%;
-
-}
-mat-form-field
-{
+  }
+  
+  .mat-form-field {
+    font-size: 20px;
     width: 100%;
-}
+  }
+  
+  
+  

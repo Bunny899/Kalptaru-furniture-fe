@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'product_name','product_price','Action'];
+  displayedColumns: string[] = [ 'product_name','product_price','product_Roomtype','product_soh','Action'];
   dataSource=new MatTableDataSource(this.product);
 
   ProductPage()

@@ -16,12 +16,16 @@ export class BillDetailsComponent implements OnInit {
   displayedColumns: string[] = ['bill_detail_id','fk_bill_id','fk_product_id','bill_price','bill_qty','bill_remarks'];
   dataSource=new MatTableDataSource();
   constructor(public _actroute:ActivatedRoute,public _ser:BillmanagementService,public _router:Router) { }
-
+  BackDetails()
+  {
+    this._router.navigate(['menunav/:user_email/Viewbill']);
+  }  
   ngOnInit() {
     this.id=this._actroute.snapshot.params['bill_id'];
     this._ser.getBillDetails(this.id).subscribe(
       (data:bill_details[])=>
       {
+        console.log(data);
         this.details_arr=data;
 
         this.dataSource.data=this.details_arr;

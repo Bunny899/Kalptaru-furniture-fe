@@ -10,7 +10,7 @@ export class LoadingComponent implements AfterViewInit {
   constructor(private elementRef: ElementRef) { }
 
   ngAfterViewInit() {
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#333';
+   
   }
  
 }

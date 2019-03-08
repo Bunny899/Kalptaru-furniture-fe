@@ -28,7 +28,7 @@ export class EmployeeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'employee_name','employee_designation','Action'];
+  displayedColumns: string[] = [ 'employee_name','employee_designation','employee_joining_date','employee_salary','employee_gender','Action'];
   dataSource=new MatTableDataSource(this.employee);
   EmployeePage()
   {

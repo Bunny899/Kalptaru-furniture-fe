@@ -17,6 +17,7 @@ export class UpdateEmployeeComponent implements OnInit {
   employee_mobileno:number;
   employee_city:string;
   employee_gender:string;
+  gender_arr:string[]=["Male","Female"];
   employee_address:string;
   employee_type:number;
   updateProductArray:employee[]=[];
@@ -35,7 +36,10 @@ export class UpdateEmployeeComponent implements OnInit {
     )  
     
   }
-  
+  onCancel()
+  {
+    this._router.navigate(['menunav/:user_email/employee']);  
+  }
   ngOnInit() {
     this.employee_email=this._activatedroutes.snapshot.params['employee_email'];
 
@@ -52,7 +56,6 @@ export class UpdateEmployeeComponent implements OnInit {
         this.employee_gender=data[0].employee_gender;
         this.employee_address=data[0].employee_address;
         this.employee_type=data[0].employee_type;
-        
       }
     );
   }

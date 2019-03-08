@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           if(data[0].user_type==1)
           {
             alert("Login Successfully"); 
-            this._router.navigate(['/loading']);
+            
             this._router.navigate(['/menunav',this.user_email]);
             
           }

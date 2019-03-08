@@ -1,6 +1,6 @@
-<h1 style="margin-left:500px">Product Managment</h1>
-<div class="example-button-row">
-    <button (click)="ProductPage()"  mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
+<h1 style="margin-left:450px;font-size: 40px;">Product Managment</h1>
+<div class="example-button-row">  
+    <button (click)="ProductPage()"  style="margin-left:970px" mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
   </div>
  
 
@@ -22,6 +22,18 @@
         <td mat-cell *matCellDef="let element"> {{element.product_price}} </td>
       </ng-container>
   
+
+      <ng-container matColumnDef="product_Roomtype">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Roomtype</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_Roomtype}} </td>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="product_soh">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Stock on Hand</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_soh}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="Action">
           <th mat-header-cell *matHeaderCellDef>Action </th>
           <td mat-cell *matCellDef="let element">

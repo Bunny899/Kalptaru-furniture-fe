@@ -41,39 +41,45 @@ export class SalarymanagementComponent implements OnInit {
       }
     )
   }
-
-  ngOnInit() {
-    
-  
-  this._employeeservice.getEmployeeById(this.employee_email).subscribe(
-      (data:any)=>{
-          function monthDiff(d1, d2) {
-            var months;
-           months = (d2.getFullYear() - d1.getFullYear()) * 12;
-           months -= d1.getMonth() ;
-            months += d2.getMonth();
-            return months <= 0 ? 0 : months;
-        }
-        console.log(
-          monthDiff(
-            new Date(2017, 10, 4), 
-            new Date(Date.now())  
-            // new Date(2018,11,5)
-        )
-      );      
-      }
-  );
-  // function daydiff(d1,d2){
-  //   var days;
-  //   var diffdays;
-  //   days= (d2.getTime()-d1.getTime());
-  //   diffdays=Math.ceil((days/(1000*3600*24)));
-  //   return diffdays;
-  // }
-  // console.log(
-  //   daydiff(new Date(2017,10,4),
-  //   new Date(Date.now()))
+  UpadteEmployee(item:employee)
+  {
+    this._router.navigate(['menunav/:user_email/updateemployee',item.employee_email]);  
+  }
+  // EmployeeId(item:employee)
+  // {
+  //   this._employeeservice.getEmployeeById(item.employee_email).subscribe(
+  //     (data:employee)=>{
+  //          function daydiff(d1,d2){ 
+  //          var days;
+  //          var diffdays;
+  //          days= (d2.getTime()-d1.getTime());
+  //          diffdays=Math.ceil((days/(1000*3600*24)));
+  //          return diffdays;
+  //        }
+  //        console.log(
+  //          daydiff(new Date(data[0].employee_joining_date),
+  //          new Date(Date.now()))
+  //        );
+  //        function monthDiff(d1, d2) {
+  //          var months;
+  //         months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  //         months -= d1.getMonth()+1 ;
+  //          months += d2.getMonth();
+  //          return months <= 0 ? 0 : months;
+  //      }    
+  //    console.log(
+  //       monthDiff(
+          
+  //         new Date(data[0].employee_joining_date), 
+  //          new Date(Date.now())  
+  //      )
+  //    );      
+        
+  //     }
   // );
+  // this._router.navigate(['/removeemployee',item.employee_email]);
+  // }
+  ngOnInit() {
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.paginator;
     
