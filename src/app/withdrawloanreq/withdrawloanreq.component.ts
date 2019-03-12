@@ -79,6 +79,7 @@ export class WithdrawloanreqComponent implements OnInit {
     this._withdrawamountservice.updateLoanStatusForReject(item.loan_id).subscribe(
       (data:any)=>{
                console.log(data);   
+               this.ngOnInit();
       }
 
       

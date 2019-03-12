@@ -17,7 +17,7 @@ import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bil
 import {OrderComponent} from './order/order.component';
 import {UsermanagementComponent} from './usermanagement/usermanagement.component';
 import {UpdateusermanagementComponent} from './usermanagement/updateusermanagement/updateusermanagement.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
+
 import { ContactusComponent } from './contactus/contactus.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { LoadingComponent } from './loading/loading.component';
@@ -31,12 +31,13 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { QrcodeappComponent } from './qrcodeapp/qrcodeapp.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { InvoiceComponent } from './invoice/invoice.component';
-
+import { FornewjqueryComponent } from './fornewjquery/fornewjquery.component';
 
 
 
 
 const arr:Routes=[
+    {path:'jquery',component:FornewjqueryComponent},    
     {path:'invoice',component:InvoiceComponent},    
     {path:'qrcode',component:QrcodeappComponent},    
     {path:'chatbot',component:ChatbotComponent},    
@@ -69,7 +70,7 @@ const arr:Routes=[
     ]},
     
     {path:'removeemployee/:employee_email',component:RemoveEmployeeComponent},
-    {path:'aboutus',component:AboutusComponent},
+    
     {path:'contactus',component:ContactusComponent},
     {path:'myprofile/:user_email',component:MyprofileComponent},
     {path:'loading',component:LoadingComponent},

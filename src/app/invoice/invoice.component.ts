@@ -24,7 +24,7 @@ export class InvoiceComponent implements OnInit {
   i:number;
   
   subtotal:number=0;
-  itemtotal:number[]=[];
+  itemtotal:number;
   gst:number=0;
   grandtotal:number;
   addCustomerInvoiceArray:customerInvoice[]=[];
@@ -113,9 +113,9 @@ export class InvoiceComponent implements OnInit {
   value(item){
     this.customer_product_qty=item;
     //console.log(item);
-    this.itemtotal[0]+=this.productArray[0].product_price*item;
-    console.log(this.itemtotal[0]);
-    this.subtotal=this.subtotal+this.itemtotal[0];
+    this.itemtotal+=this.productArray[0].product_price*item;
+    console.log(this.itemtotal);
+    this.subtotal=this.subtotal+this.itemtotal;
     console.log(this.subtotal);
     this.gst=this.subtotal*0.18;
     console.log(this.gst);

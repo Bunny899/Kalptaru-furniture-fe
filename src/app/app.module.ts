@@ -39,7 +39,7 @@ import { bill_details } from './classes/bill_details';
 import { OrderComponent } from './order/order.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { UpdateusermanagementComponent } from './usermanagement/updateusermanagement/updateusermanagement.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
+
 import { ContactusComponent } from './contactus/contactus.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { MenunavComponent } from './menunav/menunav.component';
@@ -62,6 +62,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
+import { FornewjqueryComponent } from './fornewjquery/fornewjquery.component';
 
 // import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
@@ -86,7 +87,7 @@ import {MatNativeDateModule} from '@angular/material';
     OrderComponent,
     UsermanagementComponent,
     UpdateusermanagementComponent,
-    AboutusComponent,
+
     ContactusComponent,
     MyprofileComponent,
     MenunavComponent,
@@ -104,6 +105,7 @@ import {MatNativeDateModule} from '@angular/material';
     QrcodeappComponent,
     ChatbotComponent,
     InvoiceComponent,
+    FornewjqueryComponent,
   ],
   imports: [
     MatDatepickerModule,
