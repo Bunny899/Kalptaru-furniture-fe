@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
             
             this._router.navigate(['/menunav',this.user_email]);
             
-          }
+          } 
           else
           {
             alert("Use Admin Id And Password "); 
