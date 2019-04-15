@@ -1,147 +1,202 @@
  <div class="container">
-  <h1 style="margin-left:450px;font-size: 40px">ADD PRODUCT</h1>
+  <h1 style="margin-left:450px;font-size: 40px">Add Product</h1>
   <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1000px">&nbsp;&nbsp; BACK</button>
-  <form class="example-form" name="form">
-    <mat-form-field class="example-full-width" >
-      <input type="number" matInput placeholder="Product ID" [(ngModel)]="product_id" name="product_id" required id="product_id" #name="ngModel" >
+  <form class="example-form" (ngSubmit)="addForm(f1)"  #f1="ngForm">
+<div class="row">
+      <div class="col-md-6">    
+    <!-- <mat-form-field class="example-full-width" >
+      <input type="number" matInput placeholder="Product ID" [(ngModel)]="product_id" name="product_id" required id="product_id" #id1="ngModel" >
     </mat-form-field>
-    <div [hidden]="product_id || product_id" *ngIf="name.invalid && (name.dirty || name.touched)">
-      <div [hidden]="!product_id?.errors?.required"></div>
-      <mat-error>Product id is required</mat-error>
-    </div>
+    <div *ngIf="id1.invalid && (id1.dirty || id1.touched)" class="alert alert-danger">
+      <div *ngIf="id1.errors.required">
+        Product Id Is Required.
+      </div>
+    </div> -->
 
-    
     <mat-form-field class="example-full-width" >
-      <input matInput placeholder="Product name" [(ngModel)]="product_name" name="product_name" required id="product_name" #name="ngModel">
+      <input pattern="[a-zA-Z]*" matInput placeholder="Product name" [(ngModel)]="product_name" name="product_name" required id="product_name" #name1="ngModel">
     </mat-form-field>
-    <div [hidden]="product_name || product_name" *ngIf="name.invalid && (name.dirty || name.touched)">
-        <div [hidden]="!product_name?.errors?.required"></div>
-        <mat-error>Product name is required</mat-error>
+      <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
+        <div *ngIf="name1.errors.required">
+          Product Name Is Required.
+        </div>
+        <div *ngIf="name1.errors.pattern">
+          You can't enter Digit.
+        </div>
       </div>
 
       <mat-form-field>
-          <mat-select placeholder="Enter category Name" [(ngModel)]="category_id" name="category_id" required>
+          <mat-select placeholder="Enter category Name" [(ngModel)]="category_id" name="category_id" required id="category_id" #cat_id="ngModel">
             <mat-option *ngFor="let item of categoryArray" [value]="item.category_name">
               {{item.category_name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <div [hidden]="category_id || category_id" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!category_id?.errors?.required"></div>
-          <mat-error>Category Name is required</mat-error>
-        </div>
+          <div *ngIf="cat_id.invalid && (cat_id.dirty || cat_id.touched)" class="alert alert-danger">
+            <div *ngIf="cat_id.errors.required">
+              Category Name Is Required.
+            </div>
+          </div>
 
     
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Price" [(ngModel)]="product_price" name="product_price" required id="product_price" #name="ngModel">
+        <input pattern="[0-9]*" maxlength="5" matInput placeholder="Product Price" [(ngModel)]="product_price" name="product_price" required id="product_price" #price="ngModel" digitOnly>
       </mat-form-field>
-      <div [hidden]="product_price || product_price" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_price?.errors?.required"></div>
-          <mat-error>Product price is required</mat-error>
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+          <div *ngIf="price.errors.required">
+            Product Price Is Required.
+          </div>
+          <div *ngIf="price.errors.pattern">
+            You can't enter aplhabet.
+          </div>
         </div>
-    
+
       <mat-form-field >
-          <mat-select placeholder="Enter Product_colour" [(ngModel)]="product_colour" name="product_colour" required>
+          <mat-select placeholder="Enter Product_colour" [(ngModel)]="product_colour" name="product_colour" required id="product_colour" #colour="ngModel">
             <mat-option *ngFor="let item of ColourArray" [value]="item.colour_name">
               {{item.colour_name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <div [hidden]="product_colour || product_colour" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_colour?.errors?.required"></div>
-          <mat-error>Product colour is required</mat-error>
-        </div> 
+          <div *ngIf="colour.invalid && (colour.dirty || colour.touched)" class="alert alert-danger">
+            <div *ngIf="colour.errors.required">
+              Product Colour Is Required.
+            </div>
+          </div>
     
-        <mat-form-field class="example-full-width" >
+        <!-- <mat-form-field class="example-full-width" >
           <input matInput placeholder="Product Image" [(ngModel)]="product_image" name="product_image" required id="product_image" #name="ngModel">
         </mat-form-field>
-        <div [hidden]="product_image || product_image" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_image?.errors?.required"></div>
-          <mat-error>Product image is required</mat-error>
-        </div> 
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Product Image Is Required.
+          </div>
+        </div> -->
+        <input type="file" (change)="onselect($event)" selectedFile="product_image" required #img>
+        <div *ngIf="img.invalid && (img.dirty || img.touched)" class="alert alert-danger">
+          <div *ngIf="img.errors.required">
+            Product Image Is Required.
+          </div>
+        </div>
         
     
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Weight" [(ngModel)]="product_weight" name="product_weight" required id="product_weight" #name="ngModel">
+        <input pattern="[0-9]*" matInput placeholder="Product Weight" [(ngModel)]="product_weight" name="product_weight" required id="product_weight" #weight="ngModel">
       </mat-form-field>
-      <div [hidden]="product_weight || product_weight" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_weight?.errors?.required"></div>
-          <mat-error>Product Weight is required</mat-error>
+        <div *ngIf="weight.invalid && (weight.dirty || weight.touched)" class="alert alert-danger">
+          <div *ngIf="weight.errors.required">
+            Product Weight Is Required.
+          </div>
+          <div *ngIf="weight.errors.pattern">
+            You can't enter Alphabet.
+          </div>
         </div>
   
-      
         <mat-form-field class="example-full-width" >
-          <input matInput placeholder="Product Warranty" [(ngModel)]="product_warranty" name="product_warranty" required id="product_warranty" #name="ngModel">
+          <input pattern="[0-9]*" matInput placeholder="Product Warranty" [(ngModel)]="product_warranty" name="product_warranty" required id="product_warranty" #warranty="ngModel">
         </mat-form-field>
-        <div [hidden]="product_warranty || product_warranty" *ngIf="name.invalid && (name.dirty || name.touched)">
-            <div [hidden]="!product_warranty?.errors?.required"></div>
-            <mat-error>Product Warranty is required</mat-error>
+          <div *ngIf="warranty.invalid && (warranty.dirty || warranty.touched)" class="alert alert-danger">
+            <div *ngIf="warranty.errors.required">
+              Product Warranty Is Required.
+            </div>
+            <div *ngIf="warranty.errors.pattern">
+              You can't enter Alphabet.
+            </div>
           </div>
-          
-    
+  <!-- col-md-6-finish -->
+</div>
+<div class="col-md-6">   
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Material" [(ngModel)]="product_material" name="product_material" required id="product_material" #name="ngModel">
+        <input pattern="[a-zA-Z]*" matInput placeholder="Product Material" [(ngModel)]="product_material" name="product_material" required id="product_material" #material="ngModel">
       </mat-form-field>
-      <div [hidden]="product_material || product_material" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_material?.errors?.required"></div>
-          <mat-error>Product Material is required</mat-error>
+        <div *ngIf="material.invalid && (material.dirty || material.touched)" class="alert alert-danger">
+          <div *ngIf="material.errors.required">
+            Product Material Is Required.
+          </div>
+          <div *ngIf="material.errors.pattern">
+            You can't enter Digit.
+          </div>
         </div>
-        
     
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Roomtype" [(ngModel)]="product_Roomtype" name="product_Roomtype" required id="product_Roomtype" #name="ngModel">
+        <input pattern="[a-zA-Z]*" matInput placeholder="Product Roomtype" [(ngModel)]="product_Roomtype" name="product_Roomtype" required id="product_Roomtype" #room="ngModel">
       </mat-form-field>
-      <div [hidden]="product_Roomtype || product_Roomtype" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_Roomtype?.errors?.required"></div>
-          <mat-error>Product Roomtype is required</mat-error>
-        </div>
-         
-    
-      <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Height" [(ngModel)]="product_height" name="product_height" required id="product_height" #name="ngModel">
-      </mat-form-field>
-      <div [hidden]="product_height || product_height" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_height?.errors?.required"></div>
-          <mat-error>Product Height is required</mat-error>
-        </div>
-         
-    
-      <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Width" [(ngModel)]="product_width" name="product_width" required id="product_width" #name="ngModel">
-      </mat-form-field>
-      <div [hidden]="product_width || product_width" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_width?.errors?.required"></div>
-          <mat-error>Product Width is required</mat-error>
+        <div *ngIf="room.invalid && (room.dirty || room.touched)" class="alert alert-danger">
+          <div *ngIf="room.errors.required">
+            Product RoomType Is Required.
+          </div>
+          <div *ngIf="room.errors.pattern">
+            You can't enter Digit.
+          </div>
         </div>
          
     
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Depth" [(ngModel)]="product_depth" name="product_depth" required id="product_depth" #name="ngModel">
+        <input pattern="[0-9 .]*" matInput placeholder="Product Height" [(ngModel)]="product_height" name="product_height" required id="product_height" #height="ngModel">
       </mat-form-field>
-      <div [hidden]="product_depth || product_depth" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_depth?.errors?.required"></div>
-          <mat-error>Product depth is required</mat-error>
+        <div *ngIf="height.invalid && (height.dirty || height.touched)" class="alert alert-danger">
+          <div *ngIf="height.errors.required">
+            Product Height Is Required.
+          </div>
+          <div *ngIf="height.errors.pattern">
+            You can't enter aplhabet.
+          </div>
+        </div>
+    
+      <mat-form-field class="example-full-width" >
+        <input pattern="[0-9 .]*" matInput placeholder="Product Width" [(ngModel)]="product_width" name="product_width" required id="product_width" #width="ngModel">
+      </mat-form-field>
+        <div *ngIf="width.invalid && (width.dirty || width.touched)" class="alert alert-danger">
+            <div *ngIf="width.errors.required">
+              Product Width Is Required.
+            </div>
+            <div *ngIf="width.errors.pattern">
+              You can't enter Alphabet.
+            </div>
+          </div>
+    
+      <mat-form-field class="example-full-width" >
+        <input pattern="[0-9 .]*" matInput placeholder="Product Depth" [(ngModel)]="product_depth" name="product_depth" required id="product_depth" #depth="ngModel">
+      </mat-form-field>
+        <div *ngIf="depth.invalid && (depth.dirty || depth.touched)" class="alert alert-danger">
+          <div *ngIf="depth.errors.required">
+            Product Depth Is Required.
+          </div>
+          <div *ngIf="depth.errors.pattern">
+            You can't enter Alphabet.
+          </div>
         </div>
          
     
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Quantity" [(ngModel)]="product_qty" name="product_qty" required id="product_qty" #name="ngModel">
+        <input pattern="[0-9 .]*" matInput placeholder="Product Quantity" [(ngModel)]="product_qty" name="product_qty" required id="product_qty" #qty="ngModel">
       </mat-form-field>
-      <div [hidden]="product_qty || product_qty" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_qty?.errors?.required"></div>
-          <mat-error>Product Quantity is required</mat-error>
+        <div *ngIf="qty.invalid && (qty.dirty || qty.touched)" class="alert alert-danger">
+          <div *ngIf="qty.errors.required">
+            Product Quantity Is Required.
+          </div>
+          <div *ngIf="qty.errors.pattern">
+            You can't enter Alphabet.
+          </div>
         </div>
          
     
-      <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Stock On Hand" [(ngModel)]="product_soh" name="product_soh" required id="product_soh" #name="ngModel">
+      <!-- <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Stock On Hand" [(ngModel)]="product_soh" name="product_soh" required id="product_soh" #soh="ngModel">
       </mat-form-field>
-      <div [hidden]="product_soh || product_soh" *ngIf="name.invalid && (name.dirty || name.touched)">
-          <div [hidden]="!product_soh?.errors?.required"></div>
-          <mat-error>Stock on Hand is required</mat-error>
+      <div *ngIf="soh.invalid && (soh.dirty || soh.touched)" class="alert alert-danger">
+        <div *ngIf="soh.errors.required">
+          Stock On Hand Is Required.
         </div>
+      </div> -->
+
+      <!-- row-col-md-6-finish -->
+      </div>
+      </div>
       
 <br>
-      <button  (click)="onAddProductButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; ADD</button>
+      <button [disabled]="!f1.valid"  (click)="onAddProductButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; ADD</button>
       &nbsp;&nbsp;&nbsp;<button   mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; CANCEL</button>
-     
+  
+     </form>
+     </div>

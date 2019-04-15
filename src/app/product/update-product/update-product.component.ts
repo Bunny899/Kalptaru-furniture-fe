@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { product } from '../../classes/product';
 import { ProductService } from '../../services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { CategoryService } from 'src/app/services/category.service';
+import { category } from 'src/app/classes/category';
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
@@ -28,7 +29,8 @@ export class UpdateProductComponent implements OnInit {
   selectedfile: File = null;
   flag: number = 0;
   img: any;
-  constructor(private _productservice: ProductService, private _router: Router, private _activatedroutes: ActivatedRoute) { }
+  categoryArray: category[] = [];
+  constructor(private _productservice: ProductService, private _router: Router, private _activatedroutes: ActivatedRoute,private _categoryservice:CategoryService) { }
 
   BackButton() {
     this._router.navigate(['menunav/:user_email/product']);
@@ -82,6 +84,12 @@ export class UpdateProductComponent implements OnInit {
     this._router.navigate(['menunav/:user_email/product']);
   }
   ngOnInit() {
+    this._categoryservice.getAllCategory().subscribe(
+      (data:any)=>{
+        this.categoryArray=data;
+      console.log(this.categoryArray);
+      }
+    );
     this.product_id = this._activatedroutes.snapshot.params['product_id'];
 
     this._productservice.getProductById(this.product_id).subscribe(

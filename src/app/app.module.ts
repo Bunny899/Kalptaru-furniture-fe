@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { 
+         
          MatTableModule,
          MatPaginatorModule,
          MatSortModule,
@@ -15,6 +16,7 @@ import {
          MatButtonModule, 
          MatRadioModule,MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule, MatTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { LoginComponent } from './login/login.component';
@@ -63,6 +65,9 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { FornewjqueryComponent } from './fornewjquery/fornewjquery.component';
+import { LeaveManagementComponent } from './leave-management/leave-management.component';
+import { AddLeaveTypeComponent } from './add-leave-type/add-leave-type.component';
+import { AcceptLeaveComponent } from './accept-leave/accept-leave.component';
 
 // import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
@@ -106,6 +111,9 @@ import { FornewjqueryComponent } from './fornewjquery/fornewjquery.component';
     ChatbotComponent,
     InvoiceComponent,
     FornewjqueryComponent,
+    LeaveManagementComponent,
+    AddLeaveTypeComponent,
+    AcceptLeaveComponent,
   ],
   imports: [
     MatDatepickerModule,

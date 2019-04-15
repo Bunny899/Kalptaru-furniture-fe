@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { employee } from '../../classes/employee';
 import { EmployeeService } from '../../services/employee.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { FormControl,Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
+
 export class AddEmployeeComponent implements OnInit {
   employee_email:string;
   employee_password:string;
@@ -21,9 +23,17 @@ export class AddEmployeeComponent implements OnInit {
   employee_type:number;
 
   addEmployeeArray:employee[]=[];
+  gender_arr:string[]=["male","female","others"];
+  designation_arr:string[]=["Manager","Delivery_Boy","Cashier","Worker"];
+  city_arr:string[]=["Ahmedabad","Surat","Vadodara","Aanand","Rajasthan"];
   constructor(private _employeeservice:EmployeeService,private _router:Router) { }
   onAddEmployeeButton()
   {
+    const control = new FormControl('1', Validators.pattern('[a-zA-Z ]*'));
+    const control1 = new FormControl('1', Validators.pattern('[0-9 ]*'));
+    console.log(control.errors);
+    console.log(control1.errors);
+    
     this._employeeservice.addEmployee(new employee(this.employee_email,this.employee_password,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.employee_type)).subscribe(
         (data:any)=>{
             console.log(data);

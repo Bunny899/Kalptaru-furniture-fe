@@ -32,6 +32,10 @@ import { QrcodeappComponent } from './qrcodeapp/qrcodeapp.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { FornewjqueryComponent } from './fornewjquery/fornewjquery.component';
+import { LeaveManagementComponent } from './leave-management/leave-management.component';
+import { AddLeaveTypeComponent } from './add-leave-type/add-leave-type.component';
+import { AcceptLeaveComponent } from './accept-leave/accept-leave.component';
+import { ChartsComponent } from './charts/charts.component';
 
 
 
@@ -44,10 +48,14 @@ const arr:Routes=[
     {path:'bar-chart',component:BarChartComponent},    
     {path:'doughnut-chart',component:DoughnutChartComponent},    
     {path:'pie-chart',component:PieChartComponent},    
+    {path:'chart',component:ChartsComponent},    
     {path:'',component:LoginComponent},
     
     {path:'menunav/:user_email',component:MenunavComponent,children:[
         {path:'dashboard',component:DashboardComponent},    
+        {path:'leavemanagement',component:LeaveManagementComponent},    
+        {path:'acceptLeave',component:AcceptLeaveComponent},    
+        {path:'addleaveType',component:AddLeaveTypeComponent},    
         {path:'product',component:ProductComponent},
         {path:'addproduct',component:AddProductComponent},
         {path:'updateproduct/:product_id',component:UpdateProductComponent},
