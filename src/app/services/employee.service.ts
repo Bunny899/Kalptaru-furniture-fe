@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {employee} from '../classes/employee';
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private url = 'http://localhost:3000/employee/';
+  private url = url.endPoint+'employee/';
   constructor(private _http:HttpClient) { }
   getAllEmployee(){
     return this._http.get(this.url);

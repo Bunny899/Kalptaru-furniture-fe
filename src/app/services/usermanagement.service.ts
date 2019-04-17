@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {user} from '../classes/user_tbl';
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class UsermanagementService {
-  private url = 'http://localhost:3000/user/';
+  private url = url.endPoint+'user/';
   constructor(private _http:HttpClient) { }
   getAllUser(){
     return this._http.get(this.url);

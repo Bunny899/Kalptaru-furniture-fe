@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  private countUser = 'http://localhost:3000/countuser/';
-  private countProduct = 'http://localhost:3000/countproduct/';
-  private countEmployee = 'http://localhost:3000/countEmployee/';
-  private countCategory = 'http://localhost:3000/countCategory/';
-  private productByCategoryId = 'http://localhost:3000/userproductByCategoryId/';
+  private countUser = url.endPoint+'countuser/';
+  private countProduct = url.endPoint+'countproduct/';
+  private countEmployee = url.endPoint+'countEmployee/';
+  private countCategory = url.endPoint+'countCategory/';
+  private productByCategoryId = url.endPoint+'userproductByCategoryId/';
   constructor(private _http:HttpClient) { }
   CountUser(){
     return this._http.get(this.countUser);

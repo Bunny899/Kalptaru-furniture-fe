@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { leave } from '../classes/leave_class';
-
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class LeaveService {
-  private url = 'http://localhost:3000/leaveManagement/';
-  private leave = 'http://localhost:3000/leave/';
-  private rejectleave = 'http://localhost:3000/rejectLeave/';
+  private url = url.endPoint+'leaveManagement/';
+  private leave = url.endPoint+'leave/';
+  private rejectleave = url.endPoint+'rejectLeave/';
   
   constructor(private _http:HttpClient) { }
   getAllLeaveEmployee(){

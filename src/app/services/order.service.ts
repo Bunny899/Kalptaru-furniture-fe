@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  private url = 'http://localhost:3000/order/';
-  private userdetailsbyorder = 'http://localhost:3000/userDetailByOrder/';
-  private bill_details_url='http://localhost:3000/orderDetail/';
+  private url = url.endPoint+'order/';
+  private userdetailsbyorder = url.endPoint+'userDetailByOrder/';
+  private bill_details_url=url.endPoint+'orderDetail/';
   constructor(private _http:HttpClient) { }
   getAllOrder(){
     return this._http.get(this.url);

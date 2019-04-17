@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {product  } from '../classes/product';
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private url = 'http://localhost:3000/product/';
-  private update_product_url='http://localhost:3000/update_product_without_pic/';
-  private add_image='http://localhost:3000/add_image/';
-  private get_image='http://localhost:3000/get_image/';
+  private url = url.endPoint+'product/';
+  private update_product_url=url.endPoint+'update_product_without_pic/';
+  private add_image=url.endPoint+'add_image/';
+  private get_image=url.endPoint+'get_image/';
   constructor(private _http:HttpClient) { }
   getAllProduct(){
     return this._http.get(this.url);

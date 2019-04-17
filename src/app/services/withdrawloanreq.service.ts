@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {loan} from '../classes/loan';
+import { url } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class WithdrawloanreqService {
-  private url = 'http://localhost:3000/loan/';
-  private LoanReject = 'http://localhost:3000/loanReject/';
-  private deleteStatus = 'http://localhost:3000/loandelete/';
-  private LoanId = 'http://localhost:3000/loanId/';
+  private url = url.endPoint+'loan/';
+  private LoanReject = url.endPoint+'loanReject/';
+  private deleteStatus = url.endPoint+'loandelete/';
+  private LoanId = url.endPoint+'loanId/';
   constructor(private _http:HttpClient) { }
   getLoanId(loanId){
     return this._http.get(this.LoanId+loanId);
