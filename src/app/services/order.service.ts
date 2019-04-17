@@ -7,7 +7,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 export class OrderService {
   private url = 'http://localhost:3000/order/';
   private userdetailsbyorder = 'http://localhost:3000/userDetailByOrder/';
-  private bill_details_url='http://localhost:3000/empgetbilldetails/';
+  private bill_details_url='http://localhost:3000/orderDetail/';
   constructor(private _http:HttpClient) { }
   getAllOrder(){
     return this._http.get(this.url);

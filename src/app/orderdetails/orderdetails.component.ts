@@ -28,10 +28,12 @@ export class OrderdetailsComponent implements OnInit {
     this.dataSource.paginator=this.paginator;
 
     this.id=this._actroute.snapshot.params['order_id'];
+    console.log(this.id)
     this._ser.getBillDetails(this.id).subscribe(
       (data:bill_details[])=>
       {
         this.details_arr=data;
+        console.log(this.details_arr)
 
         this.dataSource.data=this.details_arr;
 

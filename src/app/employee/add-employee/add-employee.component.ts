@@ -34,10 +34,10 @@ export class AddEmployeeComponent implements OnInit {
     console.log(control.errors);
     console.log(control1.errors);
     
-    this._employeeservice.addEmployee(new employee(this.employee_email,this.employee_password,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status)).subscribe(
+    this._employeeservice.addEmployee(new employee(this.employee_email,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status)).subscribe(
         (data:any)=>{
             console.log(data);
-            this.addEmployeeArray.push(new employee(this.employee_email,this.employee_password,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status));
+            this.addEmployeeArray.push(new employee(this.employee_email,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status));
             alert("successfully added");
             this._router.navigate(['menunav/:user_email/employee']);  
         }

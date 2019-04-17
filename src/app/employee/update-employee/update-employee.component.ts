@@ -9,7 +9,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class UpdateEmployeeComponent implements OnInit {
   employee_email:string;
-  employee_password:string;
+  
   employee_name:string;
   employee_joining_date:Date;
   employee_salary:number;
@@ -31,7 +31,7 @@ export class UpdateEmployeeComponent implements OnInit {
   }
   UpdateEmployee()
   {
-     this._employeeservice.updateEmployee(new employee(this.employee_email,this.employee_password,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status)).subscribe(
+     this._employeeservice.updateEmployee(new employee(this.employee_email,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status)).subscribe(
        (data:any)=>{
          console.log(data);
          alert("Updated Successfully");
@@ -52,7 +52,7 @@ export class UpdateEmployeeComponent implements OnInit {
         
         
         this.employee_email=data[0].employee_email;
-        this.employee_password=data[0].employee_password;
+        // this.employee_password=data[0].employee_password;
         this.employee_name=data[0].employee_name;
         this.employee_joining_date=data[0].employee_joining_date; 
         this.employee_salary=data[0].employee_salary;

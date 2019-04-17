@@ -46,7 +46,7 @@ export class RemoveEmployeeComponent implements OnInit {
     this._employeeservice.getEmployeeById(this.employee_email).subscribe(
       (data:employee[])=>{
         this.employee_email=data[0].employee_email;
-        this.employee_password=data[0].employee_password;
+        // this.employee_password=data[0].employee_password;
         this.employee_name=data[0].employee_name;
         this.employee_joining_date=data[0].employee_joining_date;
         this.employee_salary=data[0].employee_salary;

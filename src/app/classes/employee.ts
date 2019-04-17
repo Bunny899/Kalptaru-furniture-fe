@@ -1,7 +1,7 @@
 export class employee{
     constructor(
       public employee_email:string,
-      public employee_password:string,
+      // public employee_password:string,
       public employee_name:string,
       public employee_joining_date:Date,
       public employee_salary:number,
