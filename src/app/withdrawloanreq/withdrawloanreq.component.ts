@@ -65,32 +65,28 @@ export class WithdrawloanreqComponent implements OnInit {
   }
   UpdateLoanReqReject(item)
   {
-
-    const dialogRef = this.dialog.open(DialogboxComponent, {
-      width: '250px',
-      data: { laon_reason: this.loan_reason,loan_id:this.loan_id}
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.loan_reason = result;
-      this.loan_id=result;
-    });
-    this._withdrawamountservice.updateLoanStatusForReject(item.loan_id).subscribe(
-      (data:any)=>{
-               console.log(data);   
-               this.ngOnInit();
-      }
-
-      
-    )
     
-    console.log(item.loan_reason);
-    console.log(item.loan_id);
-
+    this._withdrawamountservice.getLoanId(item.loan_id).subscribe(
+      (data:any)=>{
+        this.loan_id=data[0].loan_id;
+        const dialogRef = this.dialog.open(DialogboxComponent, {
+          width: '250px',
+          
+          data: { loan_reason: this.loan_reason,loan_id:this.loan_id}
+        });
+      
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          this.loan_reason = result;
+          this.loan_id=result;
+        });
+        //console.log(this.loan_id);
+      }
+    );
+    //console.log(this.loan_id);
    
-  //  this._router.navigate(['menunav/:user_email/rejectedloan']);
-  //opendialog box
+    //console.log(item.loan_reason);
+    //console.log(item.loan_id);
   
   }
   DeleteLoanReq(item)

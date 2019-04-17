@@ -22,7 +22,7 @@ export class AcceptLeaveComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'employee_name','leave_msg','leave_days','leave_from_date','leave_to_date','leave_status'];
+  displayedColumns: string[] = ['leave_msg','leave_days','leave_from_date','leave_status'];
   dataSource=new MatTableDataSource(this.LeaveArray);
 
   BackLeaveReq()

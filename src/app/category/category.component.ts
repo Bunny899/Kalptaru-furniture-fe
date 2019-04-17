@@ -43,6 +43,7 @@ export class CategoryComponent implements OnInit {
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
         console.log(this.dataSource.data);
         this.dataSource.data=this.category; 
+        alert("Deleted Successfully");
       }
     )
   }

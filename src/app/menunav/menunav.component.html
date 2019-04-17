@@ -48,7 +48,7 @@
       <!-- <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="Viewbill">Bill Management</a> -->
       <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="withdrawloanreq">Loan Request Management</a>
       <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="leavemanagement">Leave Request Management</a>
-      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink=''>Logout</a>
+      <a (click)="onLogout()" style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink=''>Logout</a>
     </mat-nav-list>
             </ul>
         </div><!-- /.navbar-collapse -->

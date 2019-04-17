@@ -10,7 +10,7 @@ export class employee{
       public employee_city:string,
       public employee_gender:string,
       public employee_address:string,
-      public employee_type:number,
+      public salary_status:string
       ){
     }
   }

@@ -2,7 +2,8 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { loan } from '../classes/loan';
 import { WithdrawloanreqService } from '../services/withdrawloanreq.service';
-import {  ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+
 export class reason{
   constructor(
     public rejected_reason:string,
@@ -18,7 +19,7 @@ export class reason{
 })
 export class DialogboxComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogboxComponent>, @Inject(MAT_DIALOG_DATA) public data: loan,private _withdrawamountservice:WithdrawloanreqService,private _ac:ActivatedRoute) { }
+  constructor(private _router:Router,public dialogRef: MatDialogRef<DialogboxComponent>, @Inject(MAT_DIALOG_DATA) public data: loan,private _withdrawamountservice:WithdrawloanreqService,private _ac:ActivatedRoute) { }
   loan_id:number;
   rejected_reason:string;
   onNoClick(): void {
@@ -26,18 +27,22 @@ export class DialogboxComponent implements OnInit {
   }
   onClick(item)
   {
-    this.loan_id=this._ac.snapshot.params['loan_id'];
-    console.log(item);
-    console.log(this.loan_id);
-    this._withdrawamountservice.updateRejectedLoanReason(new reason(item,this.loan_id)).subscribe(
+    this.loan_id=item.loan_id;
+    //console.log(item.loan_id);
+    //console.log(item.loan_reason);
+    this._withdrawamountservice.updateRejectedLoanReason(new reason(item.rejected_reason,item.loan_id)).subscribe(
       (data:any)=>
       {
-        console.log(data);
+        
+        this.ngOnInit();
+        //console.log(data);
       }
-    )
+    );
+    
 
     }
   ngOnInit() {
+    //this.loan_id=data.loan_id;
   }
 
 }

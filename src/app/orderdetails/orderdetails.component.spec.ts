@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FornewjqueryComponent } from './fornewjquery.component';
+import { OrderdetailsComponent } from './orderdetails.component';
 
-describe('FornewjqueryComponent', () => {
-  let component: FornewjqueryComponent;
-  let fixture: ComponentFixture<FornewjqueryComponent>;
+describe('OrderdetailsComponent', () => {
+  let component: OrderdetailsComponent;
+  let fixture: ComponentFixture<OrderdetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FornewjqueryComponent ]
+      declarations: [ OrderdetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FornewjqueryComponent);
+    fixture = TestBed.createComponent(OrderdetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

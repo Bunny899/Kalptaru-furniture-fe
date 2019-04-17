@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
   
   onadd(){
-
+    localStorage.setItem('email',this.user_email);
     this._abc.getLoginByEmailAndPassword(new log(this.user_email,this.user_password)).subscribe(
       (data:any)=>
       {

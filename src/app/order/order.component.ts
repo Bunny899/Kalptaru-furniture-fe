@@ -1,8 +1,11 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { order } from '../classes/order';
+import { orderstatus } from '../classes/order';
 import { OrderService } from '../services/order.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { viewbill } from '../classes/viewbill';
+
+
 
 
 
@@ -12,58 +15,67 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-   order_id:number;
-   order_date:Date;
-   order_amount:number;
-   fk_product_id:String;
-   fk_category_id:String;
-   order_status:number;
-   fk_user_email:string;
+  billarr:viewbill[]=[];
+  i:number;
+  orderarr:orderstatus[]=[];
+  n_flag:number=0;
+  flag:number=0;
+  displayedColumns: string[] = ['order_id','order_date','order_amount','fk_user_email','order_status','Delievery Assign To','More'];
+  dataSource=new MatTableDataSource();
 
-   order:order[]=[];
-   deleteOrderArray:order[]=[];
-   productArray:order[]=[];
-  constructor(private _orderservice:OrderService,private _router:Router,private _activatedroutes:ActivatedRoute) { }
-
+  constructor(private _ser:OrderService,public _router:Router) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
-  displayedColumns: string[] = [ 'product_name','order_amount','product_Roomtype','user_name','user_address','Action'];
-  dataSource=new MatTableDataSource(this.order);
-user_email:string;
-  DeleteOrder(item)
+  onClick(item)
   {
-    this._orderservice.deleteOrder(item).subscribe(
-      (data:any)=>{
-        // console.log(data);
-        this.deleteOrderArray.splice(this.deleteOrderArray.indexOf(item),1);
-        this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        // console.log(this.dataSource.data);
-        this.dataSource.data=this.order; 
-      }
-    )
+    this._router.navigate(['menunav/:user_email/orderdetails',item.order_id]);
   }
-
   ngOnInit() {
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.paginator;
-
-    this._orderservice.getAllOrder().subscribe(
-      (data:any)=>{
-        this.order=data;
-        this.dataSource.data=this.order; 
-        // console.log(data);
-      }
-    );
     
-    this._orderservice.getUserDetailsByOrder().subscribe((data:any)=>{
-      this.order=data;
-        this.dataSource.data=this.order; 
-        
-       //console.log(data);
-    })
-  }
+    this._ser.getAllOrder().subscribe(
+      (data:any[])=>
+      {
 
+
+         for(this.i=0;this.i<data.length;this.i++)
+         {
+
+            if(data[this.i].order_status==1)
+            {
+              data[this.i].order_status='Vendor Recieved Order';
+            }
+            else if(data[this.i].order_status==2)
+            {
+              data[this.i].order_status='Product Dispatched';
+            }
+            else if(data[this.i].order_status==3)
+            {
+                data[this.i].order_status='Shipment';
+            }
+            else if(data[this.i].order_status==4)
+            {
+              data[this.i].order_status='Order Delivered';
+
+            }
+
+            if(data[this.i].delievery_assign=="")
+            {
+              this.n_flag=1;
+
+
+            }
+            else
+            {
+              this.flag=1;
+
+            }
+         }
+        this.orderarr=data;
+        this.dataSource.data=this.orderarr;
+      });
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -71,6 +83,4 @@ user_email:string;
       this.dataSource.paginator.firstPage();
     }
   }
-
-  
 }

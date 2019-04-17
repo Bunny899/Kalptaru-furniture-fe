@@ -13,23 +13,9 @@ countproduct:number;
 
 public doughnutChartLabels=['Customer','Product'];
 public doughnutChartType='doughnut';
-
 public doughnutChartData=[2,2];
   ngOnInit() {
-    this._dashboardservice.CountUser().subscribe(
-      (data:number)=>{
-        this.countuser=data;
-        console.log(this.countuser);
-      }
-    );
-
-    this._dashboardservice.CountProduct().subscribe(
-      (data:number)=>{
-        this.countproduct=data;
-        console.log(this.countproduct);
-      }
-    );
-   
+    
   }
   
 }

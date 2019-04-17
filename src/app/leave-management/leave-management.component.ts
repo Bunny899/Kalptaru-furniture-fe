@@ -26,8 +26,17 @@ export class LeaveManagementComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'employee_name','leave_msg','leave_days','leave_from_date','leave_to_date','leave_status','Action'];
+  displayedColumns: string[] = ['leave_msg','leave_days','leave_from_date','leave_status','Action'];
   dataSource=new MatTableDataSource(this.LeaveArray);
+  UpdateLeaveRejectStatus(element)
+  {
+    this._leaveservice.updateRejectedLeaveStatus(element.leave_id).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.ngOnInit();
+      }
+    )
+  }
   UpdateLeaveStatusReq(element){
     this._leaveservice.updateLeaveStatus(element.leave_id).subscribe(
       (data:any)=>{

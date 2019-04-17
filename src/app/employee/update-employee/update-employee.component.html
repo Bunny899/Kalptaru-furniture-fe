@@ -37,12 +37,14 @@
     </div>
 
    
-      <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Employee Joining Date" [(ngModel)]="employee_joining_date" name="employee_joining_date" required id="employee_joining_date" #date="ngModel">
-      </mat-form-field>
-      <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+    <mat-form-field class="example-full-width">
+      <input  matInput [matDatepicker]="pickerFrom" placeholder="Choose Joining Date" [(ngModel)]="employee_joining_date" name="employee_joining_date"  required id="employee_joining_date" #date="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #pickerFrom></mat-datepicker>
+    </mat-form-field>  
+    <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
         <div *ngIf="date.errors.required">
-          Employee Joining Date Is Required.
+          Employee Date Is Required.
         </div>
       </div>
       
@@ -58,23 +60,22 @@
           You Can Not Enter Any Alphabets.
           </div>
       </div>
+   
+   
+        <!-- <mat-form-field class="example-full-width" >
+          <input pattern="[a-zA-Z ]*" matInput placeholder="Employee Designation" [(ngModel)]="employee_designation" name="employee_designation" required id="employee_designation" #designation="ngModel">
+        </mat-form-field> -->
+        <mat-form-field class="example-full-width">
+          <mat-select pattern="[a-zA-Z ]*" [(ngModel)]="employee_designation" placeholder="{{employee_designation}}" id="employee_designation" #designation="ngModel" name="employee_designation" required>
+            <mat-option *ngFor="let item of designation_arr" value={{item.employee_designation}} >{{item}}</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        
+          
+        
       <!-- col-md-6 finish -->
     </div>
     <div class="col-md-6"> 
-   
-        <mat-form-field class="example-full-width" >
-          <input pattern="[a-zA-Z ]*" matInput placeholder="Employee Designation" [(ngModel)]="employee_designation" name="employee_designation" required id="employee_designation" #designation="ngModel">
-        </mat-form-field>
-        <div *ngIf="designation.invalid && (designation.dirty || designation.touched)" class="alert alert-danger">
-          <div *ngIf="designation.errors.required">
-            Employee Designation Is Required.
-          </div>
-          <div *ngIf="designation.errors.pattern">
-            You Can Not Enter Any Digit.
-            </div>
-        </div>
-        
-   
       <mat-form-field class="example-full-width" >
         <input pattern="[0-9 ]*" matInput placeholder="Employee Mobileno" [(ngModel)]="employee_mobileno" name="employee_mobileno" required id="employee_mobileno" #mobile="ngModel">
       </mat-form-field>
@@ -103,15 +104,14 @@
            
 
         <h4>Gender:-</h4>
-        <mat-radio-group name="emloyee_gender" [(ngModel)]="employee_gender" required id="employee_gender" #gender="ngModel">
-          <mat-radio-button *ngFor="let item of gender_arr" [value]="item">{{item}}</mat-radio-button>
-        </mat-radio-group>
-        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
-          <div *ngIf="gender.errors.required">
-            Employee Gender Is Required.
-          </div>
-        </div>
-        
+        <mat-radio-group name="employee_gender" [(ngModel)]="employee_gender" required id="employee_gender" #gender="ngModel" required id="employee_gender" #gender="ngModel">
+         <mat-radio-button *ngFor="let item of gender_arr" [value]="item">{{item}}</mat-radio-button>
+       </mat-radio-group>
+       <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+         <div *ngIf="gender.errors.required">
+           Employee Gender Is Required.
+         </div>
+         </div>       
         <br>
         <br>
    
@@ -124,20 +124,20 @@
         </div>
       </div>
          
-   
-      <!-- <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Employee Type" [(ngModel)]="employee_type" name="employee_type" required id="employee_type" #type="ngModel">
+      
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Salary Status" [(ngModel)]="salary_status" name="salary_status" required id="salary_status" #status="ngModel">
       </mat-form-field>
-      <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
-        <div *ngIf="type.errors.required">
-          Employee Type Is Required.
+      <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert alert-danger">
+        <div *ngIf="status.errors.required">
+          Salary Status Is Required.
         </div>
-      </div> -->
+      </div>
          
       </div>
       </div>
 <br>
-      <button  (click)="UpdateEmployee()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; Upadte</button>
+      <button  (click)="UpdateEmployee()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; Update</button>
       &nbsp;&nbsp;&nbsp;<button (click)="onCancel()"  mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; CANCEL</button>
    
    </form>

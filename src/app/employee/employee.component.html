@@ -6,7 +6,7 @@
 
 <div class="container">
 <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
   </mat-form-field>
   
   <div class="mat-elevation-z8">
@@ -50,7 +50,7 @@
       </tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
     
   </div>
 </div>

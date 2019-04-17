@@ -22,7 +22,7 @@
 <br>
 <button *ngIf="category_name!=''" (click)="onAddCategoryButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; ADD</button>
       <button *ngIf="category_name==''" disabled (click)="onAddCategoryButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; ADD</button>
-      &nbsp;&nbsp;&nbsp;<button   mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; CANCEL</button>
+      &nbsp;&nbsp;&nbsp;<button (click)="OnCancel()"  mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; CANCEL</button>
     </form>
   </div>
   

@@ -48,6 +48,7 @@ export class EmployeeComponent implements OnInit {
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
         console.log(this.dataSource.data);
         this.dataSource.data=this.employee; 
+        alert("Deleted Successfully");
       }
     )
   }

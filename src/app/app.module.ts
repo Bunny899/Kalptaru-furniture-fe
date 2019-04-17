@@ -31,18 +31,17 @@ import { AddEmployeeComponent } from './employee/add-employee/add-employee.compo
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import { SalarymanagementComponent } from './salarymanagement/salarymanagement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bill-details.component';
-import { ViewbillComponent } from './Cashier/Bill_management/viewbill/viewbill.component';
+
 
 
 import { LayoutModule } from '@angular/cdk/layout';
 
-import { bill_details } from './classes/bill_details';
+
 import { OrderComponent } from './order/order.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { UpdateusermanagementComponent } from './usermanagement/updateusermanagement/updateusermanagement.component';
 
-import { ContactusComponent } from './contactus/contactus.component';
+
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { MenunavComponent } from './menunav/menunav.component';
 import { LoadingComponent } from './loading/loading.component';
@@ -64,10 +63,13 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
-import { FornewjqueryComponent } from './fornewjquery/fornewjquery.component';
+
 import { LeaveManagementComponent } from './leave-management/leave-management.component';
 import { AddLeaveTypeComponent } from './add-leave-type/add-leave-type.component';
 import { AcceptLeaveComponent } from './accept-leave/accept-leave.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
+import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 // import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
@@ -85,15 +87,14 @@ import { AcceptLeaveComponent } from './accept-leave/accept-leave.component';
     AddEmployeeComponent,
     UpdateEmployeeComponent,
     SalarymanagementComponent,
-    BillDetailsComponent,
-    ViewbillComponent,
+
     DashboardComponent,
 
     OrderComponent,
     UsermanagementComponent,
     UpdateusermanagementComponent,
 
-    ContactusComponent,
+
     MyprofileComponent,
     MenunavComponent,
     LoadingComponent,
@@ -110,10 +111,13 @@ import { AcceptLeaveComponent } from './accept-leave/accept-leave.component';
     QrcodeappComponent,
     ChatbotComponent,
     InvoiceComponent,
-    FornewjqueryComponent,
+
     LeaveManagementComponent,
     AddLeaveTypeComponent,
     AcceptLeaveComponent,
+    UploadImageComponent,
+    OrderdetailsComponent,
+    NotfoundComponent,
   ],
   imports: [
     MatDatepickerModule,

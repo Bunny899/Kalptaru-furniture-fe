@@ -28,13 +28,17 @@ export class AddcategoryComponent implements OnInit {
             console.log(data);
             this.addProductArray.push(new categoryname(this.category_name));
             alert("successfully added");
-            this._router.navigate(['menunav/:user_email/addproduct']);  
+            this._router.navigate(['menunav/:user_email/category']);  
         }
       )
     
     
   }
   BackButton()
+  {
+    this._router.navigate(['menunav/:user_email/category']);  
+  }
+  OnCancel()
   {
     this._router.navigate(['menunav/:user_email/category']);  
   }

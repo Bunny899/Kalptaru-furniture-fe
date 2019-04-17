@@ -9,7 +9,10 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./menunav.component.css'],
 })
 export class MenunavComponent {
-
+  onLogout()
+  {
+    localStorage.setItem('email',"");
+  }
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)

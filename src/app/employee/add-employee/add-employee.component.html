@@ -94,17 +94,10 @@
             </div>
         </div>
   
-      <!-- <form class="example-form" >
+      
         <mat-form-field class="example-full-width" >
           <input matInput placeholder="Employee City" [(ngModel)]="employee_city" name="employee_city" required id="employee_city" #city="ngModel">
-        </mat-form-field> -->
-        <mat-form-field>
-          <mat-select placeholder="Select Employee City" [(ngModel)]="employee_city" name="employee_city" required id="employee_city" #city="ngModel">
-            <mat-option *ngFor="let item of city_arr" [value]="item">
-               {{item}} 
-            </mat-option>
-          </mat-select>
-          </mat-form-field>
+        </mat-form-field>   
         <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
             <div *ngIf="city.errors.required">
               Employee City Is Required.

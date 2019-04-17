@@ -27,7 +27,7 @@ export class SalarymanagementComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = [ 'employee_name','employee_designation','employee_salary','employee_joining_date','Action'];
+  displayedColumns: string[] = [ 'employee_name','employee_designation','employee_salary','employee_joining_date','salary_status'];
   dataSource=new MatTableDataSource(this.employee);
   DeleteEmployee(item)
   {

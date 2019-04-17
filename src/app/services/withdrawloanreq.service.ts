@@ -8,7 +8,11 @@ export class WithdrawloanreqService {
   private url = 'http://localhost:3000/loan/';
   private LoanReject = 'http://localhost:3000/loanReject/';
   private deleteStatus = 'http://localhost:3000/loandelete/';
+  private LoanId = 'http://localhost:3000/loanId/';
   constructor(private _http:HttpClient) { }
+  getLoanId(loanId){
+    return this._http.get(this.LoanId+loanId);
+  }
   getAllLoanReq(){
     return this._http.get(this.url);
   }

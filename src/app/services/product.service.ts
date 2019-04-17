@@ -7,6 +7,8 @@ import {product  } from '../classes/product';
 export class ProductService {
   private url = 'http://localhost:3000/product/';
   private update_product_url='http://localhost:3000/update_product_without_pic/';
+  private add_image='http://localhost:3000/add_image/';
+  private get_image='http://localhost:3000/get_image/';
   constructor(private _http:HttpClient) { }
   getAllProduct(){
     return this._http.get(this.url);
@@ -14,13 +16,15 @@ export class ProductService {
   getProductById(product_id:string){
     return this._http.get(this.url+product_id);
 }
-  addproduct(item:product)
-  {
-    const body=JSON.stringify(item);
-    const head1=new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.url,body,{headers:head1});
-  }
+addproduct(item:FormData)
+{
+  return this._http.post(this.url,item);
+}
 
+uploadimage(product_id,item)
+{
+  return this._http.put(this.add_image+product_id,item);
+}
   updateproductwithpic(product_id,item:FormData)
   {
     
@@ -36,4 +40,12 @@ export class ProductService {
   deleteproduct(item){
     return this._http.delete(this.url+item.product_id);
   }
+  getImageById(product_id)
+  {
+    return this._http.get(this.get_image+product_id);
+  }
+  addimage(item)
+{
+  return this._http.post(this.add_image,item);
+}
 }

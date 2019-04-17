@@ -25,7 +25,7 @@ export class UsermanagementComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['user_email', 'user_name','user_city','user_gender','user_mobileno','Action'];
+  displayedColumns: string[] = ['user_email', 'user_name','user_city','user_gender','user_mobileno'];
   dataSource=new MatTableDataSource(this.user);
 
   ngOnInit() {

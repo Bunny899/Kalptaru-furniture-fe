@@ -21,7 +21,7 @@ export class RemoveEmployeeComponent implements OnInit {
   employee_city:string;
   employee_gender:string;
   employee_address:string;
-  employee_type:number;
+  salary_status:string;
   employee:employee[]=[];
   difference:Date;
   deleteEmployeeArray:employee[]=[];
@@ -55,7 +55,7 @@ export class RemoveEmployeeComponent implements OnInit {
         this.employee_city=data[0].employee_city;
         this.employee_gender=data[0].employee_gender;
         this.employee_address=data[0].employee_address;
-        this.employee_type=data[0].employee_type;
+        this.salary_status=data[0].salary_status;
         function monthDiff(d1, d2) {
                   var months;
                  months = (d2.getFullYear() - d1.getFullYear()) * 12;

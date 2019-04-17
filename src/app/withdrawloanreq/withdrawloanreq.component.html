@@ -2,7 +2,7 @@
 <button (click)="AcceptLoanReq()"  mat-raised-button color="primary" style="margin-left:1050px;"><span aria-hidden="true"></span>Accept</button>&nbsp;&nbsp;&nbsp;
 <div class="container">
 <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
   </mat-form-field>
   
   <div class="mat-elevation-z8">
@@ -34,11 +34,11 @@
           <th mat-header-cell *matHeaderCellDef>Action </th>
           <td mat-cell *matCellDef="let element">
             <button (click)="UpdateLoanReq(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-ok"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
-            <button (click)="UpdateLoanReqReject(element)" *ngIf="element.loan_status!='accept'" mat-raised-button color="primary"><span class="glyphicon glyphicon-remove"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+            <button (click)="UpdateLoanReqReject(element)" *ngIf="element.loan_status!='Accept'" mat-raised-button color="primary"><span class="glyphicon glyphicon-remove"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
             <button (click)="DeleteLoanReq(element)"  mat-raised-button color="primary"><span class="glyphicon glyphicon-trash"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
-            <li *ngIf="loan_reason">
+            <!-- <li *ngIf="loan_reason">
                 You chose: <i>{{loan_reason}}</i>
-              </li>
+              </li> -->
           </td>
         </ng-container>
         <!-- (click)="UpdateLoanReq(element)" -->

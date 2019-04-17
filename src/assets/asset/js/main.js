@@ -42,21 +42,7 @@
 //         }
 // });
 //chart
-// const abc = document.getElementById("piechart");
-// console.log(abc);
-// let piechart =new Chart(abc,{
-//     type :'pie',
-//     data :{
-//         labels:['customer','product'],
-//         datasets:[
-//             {
-//             label:'compare',
-//             backgroundColor:['#f1c40f','#e67e22'],
-//             data:[2,2]
-//         }
-//     ]
-//     }
-// });
+
 
 
 (function (jQuery) {

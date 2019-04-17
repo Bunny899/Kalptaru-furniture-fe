@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { loan } from '../classes/loan';
 import { WithdrawloanreqService } from '../services/withdrawloanreq.service';
+
 import { Router,ActivatedRoute } from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 @Component({
@@ -8,6 +9,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   templateUrl: './accept-loan.component.html',
   styleUrls: ['./accept-loan.component.css']
 })
+
 export class AcceptLoanComponent implements OnInit {
   loan_id:number;
   loan_amount:number;
@@ -39,6 +41,7 @@ export class AcceptLoanComponent implements OnInit {
         this.loanArray=data;
         this.dataSource.data=this.loanArray; 
         console.log(this.loanArray);
+       
       }
     );
   }
