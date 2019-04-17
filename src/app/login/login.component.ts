@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
             alert("Login Successfully"); 
             
             this._router.navigate(['/menunav',this.user_email]);
-            
+            this._router.navigate(['/menunav/:user_email/dashboard']);
           } 
           else
           {
