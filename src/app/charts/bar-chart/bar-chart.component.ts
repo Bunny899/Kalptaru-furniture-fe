@@ -52,7 +52,7 @@ productCount:number[]=[];
           )
         }
         
-          console.log(this.productCount);
+          //console.log(this.productCount);
           
 
       }

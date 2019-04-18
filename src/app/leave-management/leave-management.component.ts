@@ -32,7 +32,7 @@ export class LeaveManagementComponent implements OnInit {
   {
     this._leaveservice.updateRejectedLeaveStatus(element.leave_id).subscribe(
       (data:any)=>{
-        console.log(data);
+      //  console.log(data);
         this.ngOnInit();
       }
     )
@@ -40,7 +40,7 @@ export class LeaveManagementComponent implements OnInit {
   UpdateLeaveStatusReq(element){
     this._leaveservice.updateLeaveStatus(element.leave_id).subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
            this.ngOnInit();
       }
     );
@@ -51,10 +51,10 @@ export class LeaveManagementComponent implements OnInit {
   DeleteLeaveRecordReq(element){
     this._leaveservice.deleteLeaveReq(element).subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         this.DeleteLeaveArray.splice(this.DeleteLeaveArray.indexOf(element),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(element),1);
-        console.log(this.dataSource.data);
+        //console.log(this.dataSource.data);
         this.dataSource.data=this.LeaveArray; 
         alert("Deleted successfully");
       }

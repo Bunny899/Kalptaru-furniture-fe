@@ -20,12 +20,12 @@ export class AddcategoryComponent implements OnInit {
   onAddCategoryButton()
   {
     const control = new FormControl('1', Validators.pattern('[a-zA-Z ]*'));
-    console.log(control.errors);
+   // console.log(control.errors);
     
     
       this._categoryservice.addCategory(new categoryname(this.category_name)).subscribe(
         (data:any)=>{
-            console.log(data);
+     //       console.log(data);
             this.addProductArray.push(new categoryname(this.category_name));
             alert("successfully added");
             this._router.navigate(['menunav/:user_email/category']);  

@@ -37,7 +37,7 @@ export class AcceptLeaveComponent implements OnInit {
       (data:any)=>{
         this.LeaveArray=data;
         this.dataSource.data=this.LeaveArray; 
-      console.log(this.LeaveArray);
+     // console.log(this.LeaveArray);
       }
     );
 

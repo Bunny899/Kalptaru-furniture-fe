@@ -26,17 +26,18 @@ peruser:number[]=[];
     this._dashboardservice.CountUser().subscribe(
       (data:any[])=>{
         this.countuser=data[0].User;
-        console.log(this.countuser);
+      
+      //  console.log(this.countuser);
         this._dashboardservice.CountProduct().subscribe(
           (data:any[])=>{
             this.countproduct=data[0].Product;
-            console.log(this.countproduct);
+        //    console.log(this.countproduct);
                 this.total=this.countproduct + this.countuser;
                 this.peruser[0]=(100*this.countuser)/this.total;
                 this.perproduct[0]=(100*this.countproduct)/this.total;
-                console.log(this.total)
-                console.log(this.perproduct);
-                console.log(this.peruser);
+         //       console.log(this.total)
+           //     console.log(this.perproduct);
+             //   console.log(this.peruser);
           }
         );
       }

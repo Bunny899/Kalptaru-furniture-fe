@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
 
   UpdateCategory(item:category)
   {
-    console.log(item.category_name)
+   // console.log(item.category_name)
     this._router.navigate(['menunav/:user_email /updatecategory',item.category_name]);  
   }
 
@@ -38,10 +38,10 @@ export class CategoryComponent implements OnInit {
   {
     this._categoryservice.deleteCategory(item).subscribe(
       (data:any)=>{
-        console.log(data);
+     //   console.log(data);
         this.deleteCategoryArray.splice(this.deleteCategoryArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        console.log(this.dataSource.data);
+       // console.log(this.dataSource.data);
         this.dataSource.data=this.category; 
         alert("Deleted Successfully");
       }

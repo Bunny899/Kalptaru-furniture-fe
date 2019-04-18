@@ -13,7 +13,7 @@ export class DashboardComponent {
     this._dashboardservice.CountUser().subscribe(
       (data:any)=>{
         this.countUser=data;
-        console.log(this.countUser);
+        //console.log(this.countUser);
       }
     );
   }

@@ -47,7 +47,7 @@ export class WithdrawloanreqComponent implements OnInit {
   {
     this._withdrawamountservice.updateLoanStatus(item.loan_id).subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
            this.ngOnInit();
       }
    )  
@@ -76,7 +76,7 @@ export class WithdrawloanreqComponent implements OnInit {
         });
       
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
+      //    console.log('The dialog was closed');
           this.loan_reason = result;
           this.loan_id=result;
         });
@@ -93,10 +93,10 @@ export class WithdrawloanreqComponent implements OnInit {
   {
     this._withdrawamountservice.deleteLoanReq(item).subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         this.deleteLoanArray.splice(this.deleteLoanArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        console.log(this.dataSource.data);
+        //console.log(this.dataSource.data);
         this.dataSource.data=this.loanArray; 
         alert("Deleted successfully");
       }

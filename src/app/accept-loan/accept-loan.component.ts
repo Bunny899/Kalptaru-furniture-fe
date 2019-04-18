@@ -40,7 +40,7 @@ export class AcceptLoanComponent implements OnInit {
       (data:any)=>{
         this.loanArray=data;
         this.dataSource.data=this.loanArray; 
-        console.log(this.loanArray);
+//        console.log(this.loanArray);
        
       }
     );

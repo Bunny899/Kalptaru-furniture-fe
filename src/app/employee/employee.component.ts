@@ -36,17 +36,17 @@ export class EmployeeComponent implements OnInit {
   }
   UpdateEmployee(item:employee)
   {
-    console.log(item.employee_email)
+    //console.log(item.employee_email)
     this._router.navigate(['menunav/:user_email/updateemployee',item.employee_email]);  
   }
   DeleteEmployee(item)
   {
     this._employeeservice.deleteEmployee(item).subscribe(
       (data:any)=>{
-        console.log(data);
+  //      console.log(data);
         this.deleteEmployeeArray.splice(this.deleteEmployeeArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        console.log(this.dataSource.data);
+//        console.log(this.dataSource.data);
         this.dataSource.data=this.employee; 
         alert("Deleted Successfully");
       }

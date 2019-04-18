@@ -33,10 +33,10 @@ export class SalarymanagementComponent implements OnInit {
   {
     this._employeeservice.deleteEmployee(item).subscribe(
       (data:any)=>{
-        console.log(data);
+  //      console.log(data);
         this.deleteEmployeeArray.splice(this.deleteEmployeeArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        console.log(this.dataSource.data);
+    //    console.log(this.dataSource.data);
         this.dataSource.data=this.employee; 
       }
     )

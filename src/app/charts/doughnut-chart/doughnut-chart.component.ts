@@ -22,17 +22,17 @@ peremployee:number[]=[];
     this._dashboardservice.CountEmployee().subscribe(
       (data:any[])=>{
         this.countemployee=data[0].employee;
-        console.log(this.countemployee);
+        //console.log(this.countemployee);
         this._dashboardservice.CountProduct().subscribe(
           (data:any[])=>{
             this.countproduct=data[0].Product;
-            console.log(this.countproduct);
+          //  console.log(this.countproduct);
                 this.total=this.countproduct + this.countemployee;
                 this.peremployee[0]=(100*this.countemployee)/this.total;
                 this.perproduct[0]=(100*this.countproduct)/this.total;
-                console.log(this.total)
-                console.log(this.perproduct);
-                console.log(this.peremployee);
+            //    console.log(this.total)
+              //  console.log(this.perproduct);
+               // console.log(this.peremployee);
           }
         );
       }

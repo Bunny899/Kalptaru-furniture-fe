@@ -33,7 +33,7 @@ export class UpdateEmployeeComponent implements OnInit {
   {
      this._employeeservice.updateEmployee(new employee(this.employee_email,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status)).subscribe(
        (data:any)=>{
-         console.log(data);
+//         console.log(data);
          alert("Updated Successfully");
         this._router.navigate(['menunav/:user_email/employee']);      
        }

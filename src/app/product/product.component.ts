@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   {
     this._productservice.deleteproduct(item).subscribe(
       (data:any)=>{
-        console.log(data);
+//        console.log(data);
         this.deleteProductArray.splice(this.deleteProductArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
         this.dataSource.data=this.product;

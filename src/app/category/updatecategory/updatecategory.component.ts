@@ -23,7 +23,7 @@ export class UpdatecategoryComponent implements OnInit {
   {
      this._categoryservice.updateCategory(new category(this.category_id,this.category_name)).subscribe(
        (data:any)=>{
-         console.log(data);
+         //console.log(data);
          alert("Updated Successfully");
         this._router.navigate(['menunav/:user_email/category']);      
        }
@@ -39,7 +39,7 @@ export class UpdatecategoryComponent implements OnInit {
 
     this._categoryservice.getCategoryByName(this.category_name).subscribe(
       (data:category[])=>{
-        console.log(data);
+        //console.log(data);
         this.category_id=data[0].category_id;
         this.category_name=data[0].category_name;
       }

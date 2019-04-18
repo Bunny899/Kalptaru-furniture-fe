@@ -68,9 +68,9 @@ export class AddProductComponent implements OnInit {
 
       this._productservice.addproduct(fd).subscribe(
         (data: any) => {
-          console.log(data);
+          //console.log(data);
           var fd1 = new FormData();
-          console.log(data.insertId);
+          //console.log(data.insertId);
           fd1.append('fk_product_id',data.insertId);
           fd1.append('product_image',this.selectedfile, this.selectedfile.name);
             this._productservice.addimage(fd1).subscribe(
